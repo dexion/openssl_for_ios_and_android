@@ -22,8 +22,8 @@ if [ "${1}" == "cURL" ]; then
 else
     ANDROID_API=${ANDROID_API:-16}
 fi
-ARCHS=("android" "android-armeabi" "android-x86" "android-mips")
-ABIS=("armeabi" "armeabi-v7a" "x86" "mips")
+ARCHS=("android" "android-armeabi" "android64-aarch64" "android-x86" "android64")
+ABIS=("armeabi" "arm64-v8a" "armeabi-v7a" "x86" "x86_64")
 # ANDROID_API=${ANDROID_API:-21}
 # ARCHS=("android" "android-armeabi" "android64-aarch64" "android-x86" "android64" "android-mips" "android-mips64")
 # ABIS=("armeabi" "armeabi-v7a" "arm64-v8a" "x86" "x86_64" "mips" "mips64")

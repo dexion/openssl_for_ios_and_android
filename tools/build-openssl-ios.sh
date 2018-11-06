@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # Copyright 2016 leenjewel
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,7 +23,7 @@ while [ -h "$SOURCE" ]; do
     [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
 pwd_path="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
- 
+
 # Setup architectures, library name and other vars + cleanup from previous runs
 ARCHS=("arm64" "armv7s" "armv7" "i386" "x86_64")
 SDKS=("iphoneos" "iphoneos" "iphoneos" "iphonesimulator" "iphonesimulator")
@@ -35,7 +35,7 @@ LIB_NAME="openssl-1.1.0f"
 LIB_DEST_DIR="${pwd_path}/../output/ios/openssl-universal"
 HEADER_DEST_DIR="include"
 rm -rf "${HEADER_DEST_DIR}" "${LIB_DEST_DIR}" "${LIB_NAME}"
- 
+
 # Unarchive library, then configure and make for specified architectures
 configure_make()
 {
@@ -101,4 +101,4 @@ create_lib()
 mkdir "${LIB_DEST_DIR}";
 create_lib "libcrypto.a" "${LIB_DEST_DIR}/libcrypto.a"
 create_lib "libssl.a" "${LIB_DEST_DIR}/libssl.a"
- 
+

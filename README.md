@@ -35,7 +35,8 @@ This a static library compile from openssl and cURL for iOS and Android.
 ## Android NDK Version
 
  - ~~[android-ndk-r13b](https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip)~~
- - [android-ndk-r14b](https://dl.google.com/android/repository/android-ndk-r14b-darwin-x86_64.zip)
+ - [android-ndk-r14b_darwin](https://dl.google.com/android/repository/android-ndk-r14b-darwin-x86_64.zip)
+ - [android-ndk-r14b_linux](https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip)
  - ~~android-ndk-r15 (**Do not try to build use 15 It will fail**)~~
 
 ## How to build
@@ -58,12 +59,12 @@ sh ./build-curl4ios.sh
 
 ### For Android
 
-Set ENV `NDK_ROOT`
+Set ENV `ANDROID_NDK`
 
 
 ```
 cd tools
-sh ./build-openssl4android.sh
+./build-openssl4android.sh
 ```
 
 You could build it with ABI like
