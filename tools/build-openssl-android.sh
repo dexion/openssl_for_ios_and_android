@@ -19,7 +19,7 @@ set -u
 source ./_shared.sh some_unuseful_argument
 
 # Setup architectures, library name and other vars + cleanup from previous runs
-LIB_NAME="openssl-1.1.0f"
+LIB_NAME="openssl-1.1.0i"
 LIB_DEST_DIR=${TOOLS_ROOT}/libs
 [ -d ${LIB_DEST_DIR} ] && rm -rf ${LIB_DEST_DIR}
 [ -f "${LIB_NAME}.tar.gz" ] || wget https://www.openssl.org/source/${LIB_NAME}.tar.gz;
@@ -43,6 +43,9 @@ configure_make() {
     fi
   fi
 
+  #removes the -mandroid flag so that clang can build
+  sed -e "s/\-mandroid//g" -i .backup Configurations/10-main.conf
+
   ./Configure $ARCH \
               --prefix=${LIB_DEST_DIR}/${ABI} \
               --with-zlib-include=$SYSROOT/usr/include \
@@ -60,7 +63,7 @@ configure_make() {
     make install_sw
     make install_ssldirs
 
-    OUTPUT_ROOT=${TOOLS_ROOT}/../output/android/openssl-${ABI}
+    OUTPUT_ROOT=${TOOLS_ROOT}/../output/android/openssl/${ABI}
     [ -d ${OUTPUT_ROOT}/include ] || mkdir -p ${OUTPUT_ROOT}/include
     cp -r ${LIB_DEST_DIR}/${ABI}/include/openssl ${OUTPUT_ROOT}/include
 

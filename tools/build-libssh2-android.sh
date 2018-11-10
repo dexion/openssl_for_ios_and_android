@@ -32,9 +32,9 @@ configure_make() {
 
   configure $*
   # fix me
-  cp ${TOOLS_ROOT}/../output/android/openssl-${ABI}/lib/libssl.a ${SYSROOT}/usr/lib
-  cp ${TOOLS_ROOT}/../output/android/openssl-${ABI}/lib/libcrypto.a ${SYSROOT}/usr/lib
-  cp -r ${TOOLS_ROOT}/../output/android/openssl-${ABI}/include/openssl ${SYSROOT}/usr/include
+  cp ${TOOLS_ROOT}/../output/android/openssl/${ABI}/lib/libssl.a ${SYSROOT}/usr/lib
+  cp ${TOOLS_ROOT}/../output/android/openssl/${ABI}/lib/libcrypto.a ${SYSROOT}/usr/lib
+  cp -r ${TOOLS_ROOT}/../output/android/openssl/${ABI}/include/openssl ${SYSROOT}/usr/include
 
   mkdir -p ${LIB_DEST_DIR}/${ABI}
   ./configure --prefix=${LIB_DEST_DIR}/${ABI} \
