@@ -47,7 +47,7 @@ configure() {
     export TOOL="arm-linux-androideabi"
     NDK_FLAGS="--arch=arm"
   elif [ "$ARCH" == "android64-aarch64" ]; then
-    export ARCH_FLAGS=""
+    export ARCH_FLAGS="-fuse-ld=gold"
     export ARCH_LINK=""
     export TOOL="aarch64-linux-android"
     NDK_FLAGS="--arch=arm64"

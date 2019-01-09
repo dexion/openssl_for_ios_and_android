@@ -41,7 +41,9 @@ configure_make() {
               --with-sysroot=${SYSROOT} \
               --host=${TOOL} \
               --with-openssl \
+              --enable-static \
               --with-libz
+              #--without-libz
 
               # --with-ssl=/usr \
               # --enable-ipv6 \
@@ -66,7 +68,7 @@ configure_make() {
 
     OUTPUT_ROOT=${TOOLS_ROOT}/../output/android/libssh2/${ABI}
     [ -d ${OUTPUT_ROOT}/include ] || mkdir -p ${OUTPUT_ROOT}/include
-    cp -r ${LIB_NAME}/include ${OUTPUT_ROOT}/include
+    cp -r ${TOOLS_ROOT}/${LIB_NAME}/include ${OUTPUT_ROOT}
 
     [ -d ${OUTPUT_ROOT}/lib ] || mkdir -p ${OUTPUT_ROOT}/lib
     cp ${LIB_DEST_DIR}/${ABI}/lib/libssh2.a ${OUTPUT_ROOT}/lib
